@@ -1,0 +1,53 @@
+extends layout
+
+block content
+  .editor-grids
+    .title
+      .online-status(class=funcParsed.online? "is-online" : "")
+        i.fas.fa-circle
+      .stack-title
+        h3.subtitle Function Editor
+        h2 #{func}
+      button#btn-save-deploy.btn
+        i.fas.fa-rocket
+        | Save & Deploy
+    .editor-area
+      .tabs
+        button#btn-editor1.button.tab.active index.js
+        button#btn-editor2.button.tab package.json
+        .spacer
+      .editors
+        #editor1.editor #{eIndex}
+        #editor2.editor.hidden #{ePackage}
+    .detail-area
+      if funcParsed.online
+        .detail-title
+          h1 Testing
+          button#btn-run-test
+            i.far.fa-play-circle
+            | Run
+        .content
+          h2 Query
+          .url 
+            p /function/#{func}
+            input#query-input(type="text", value="?")
+          h2 Output
+        .output-wrapper
+          pre.output#output
+          .output-status-wrapper: p#output-status
+      .detail-title
+        h1 Actions
+      .content
+        if funcParsed.online
+          button#btn-stop-service.is-danger
+            i.fas.fa-stop
+            | Stop Service
+        else
+          button#btn-delete-func.is-danger
+            i.fas.fa-trash
+            | Delete Function
+  script(type="text/javascript", src="https://unpkg.com/axios/dist/axios.min.js")
+  script(type="text/javascript", src="/javascripts/ace/ace.js")
+  script
+    | var funcname = '#{func}';
+    include /public/javascripts/function-view-js.js

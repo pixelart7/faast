@@ -1,0 +1,287 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700");
+*, *:before, *:after {
+  box-sizing: border-box;
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, "Segoe UI", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  width: 100%;
+  height: 100%;
+  margin: 0; }
+
+.grids {
+  width: 100vw;
+  height: 100vh;
+  grid-template: 64px 36px 1fr/minmax(256px, 1fr) 4fr;
+  display: grid; }
+  .grids header {
+    grid-area: 1 / 1 / 1 / 3;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    background-color: #212121; }
+    .grids header span {
+      color: #00B0FF;
+      font-size: 20px;
+      font-weight: 700; }
+  .grids .info-bar {
+    grid-area: 2 / 1 / 3 / 3;
+    background-color: #eee;
+    border-bottom: solid 1px #cdcdcd;
+    display: flex;
+    align-items: center;
+    font-size: 13.5px;
+    color: #777;
+    padding: 0 24px; }
+    .grids .info-bar span {
+      margin-right: 6px; }
+    .grids .info-bar span:before {
+      content: '·';
+      color: #333;
+      margin-right: 6px; }
+    .grids .info-bar span:first-child:before {
+      display: none; }
+  .grids .sidebar {
+    background-color: #fafafa;
+    border-right: 1px solid #ddd;
+    position: relative; }
+    .grids .sidebar h1 {
+      font-size: 16px;
+      font-family: 'Hack', monospace;
+      color: #aaa;
+      padding: 24px 24px 16px 24px;
+      margin: 0;
+      height: 60px; }
+    .grids .sidebar .push {
+      height: 64px; }
+    .grids .sidebar a.btn {
+      display: block;
+      width: 100%;
+      min-height: 52px;
+      padding: 16px 24px;
+      transition: background-color 0.2s;
+      color: #121212;
+      font-family: 'Source Code Pro', monospace;
+      text-decoration: none;
+      font-size: 14px;
+      display: flex;
+      align-items: center; }
+      .grids .sidebar a.btn i.fas {
+        font-size: 8px;
+        color: #9E9E9E; }
+        .grids .sidebar a.btn i.fas.is-online {
+          color: #8BC34A; }
+      .grids .sidebar a.btn:hover {
+        background-color: #efefef; }
+      .grids .sidebar a.btn.create {
+        position: absolute;
+        bottom: 0;
+        border-top: 1px solid #ddd;
+        color: #03A9F4; }
+  .grids .content {
+    background-color: #ffffff; }
+    .grids .content .title {
+      display: flex;
+      padding: 16px 24px 12px 24px;
+      height: 60px;
+      align-items: center;
+      border-bottom: 1px solid #ddd; }
+      .grids .content .title > * {
+        margin-left: 4px;
+        margin-right: 4px; }
+      .grids .content .title > *:first-child {
+        margin-left: 0; }
+      .grids .content .title > *:last-child {
+        margin-right: 0; }
+      .grids .content .title h1 {
+        font-size: 22px;
+        font-weight: 500; }
+      .grids .content .title .stack-title h2 {
+        font-size: 16px;
+        font-weight: 500; }
+      .grids .content .title .stack-title h3.subtitle {
+        font-size: 12px;
+        font-weight: 400;
+        color: #999; }
+      .grids .content .title button.btn {
+        height: 36px;
+        background: none;
+        border-radius: 4px;
+        padding: 0 8px;
+        border: none;
+        color: #03A9F4;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 14px;
+        transition: background-color 0.2s; }
+        .grids .content .title button.btn:hover {
+          background-color: #f2f2f2; }
+        .grids .content .title button.btn:focus {
+          outline: 0; }
+        .grids .content .title button.btn i.fas {
+          margin-right: 8px; }
+    .grids .content .sub-content {
+      padding: 24px; }
+      .grids .content .sub-content label {
+        display: block;
+        font-size: 12px;
+        color: #444;
+        font-weight: 500; }
+      .grids .content .sub-content input {
+        margin: 6px 0 8px 0;
+        height: 26px;
+        width: 100%;
+        font-size: 13px;
+        max-width: 512px; }
+      .grids .content .sub-content span.help-text {
+        display: block;
+        font-size: 12px;
+        color: #aaa;
+        font-style: italic; }
+      .grids .content .sub-content .button-group {
+        margin-top: 12px;
+        padding: 4px 0; }
+        .grids .content .sub-content .button-group button {
+          height: 28px;
+          padding: 0 8px;
+          font-size: 13px;
+          cursor: pointer; }
+          .grids .content .sub-content .button-group button.primary {
+            background-color: #03A9F4;
+            color: #fff;
+            border: 1px solid #0286c2; }
+    .grids .content .editor-grids {
+      display: grid;
+      grid-template: 60px 1fr / 1fr 256px;
+      width: 100%;
+      height: 100%; }
+      .grids .content .editor-grids .title {
+        grid-area: 1 / 1 / 1 / 3;
+        padding-left: 0px; }
+        .grids .content .editor-grids .title .online-status {
+          font-size: 8px;
+          width: 32px;
+          padding-left: 12px;
+          color: #9E9E9E;
+          text-align: center;
+          margin-right: 6px; }
+          .grids .content .editor-grids .title .online-status.is-online {
+            color: #8BC34A; }
+        .grids .content .editor-grids .title #btn-stop-service {
+          color: #f44336; }
+      .grids .content .editor-grids .editor-area {
+        display: grid;
+        grid-template-rows: 52px 1fr;
+        border-right: 1px solid #ddd; }
+        .grids .content .editor-grids .editor-area .tabs {
+          display: grid;
+          grid-template-columns: 128px 128px minmax(12px, 1fr); }
+          .grids .content .editor-grids .editor-area .tabs button.tab {
+            height: 100%;
+            width: 128px;
+            font-size: 13.5px;
+            background-color: #fafafa;
+            border: none;
+            border-bottom: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            cursor: pointer;
+            transition: background-color 0.2s; }
+            .grids .content .editor-grids .editor-area .tabs button.tab:hover {
+              background-color: #eee; }
+            .grids .content .editor-grids .editor-area .tabs button.tab.active {
+              background-color: #fff;
+              border-bottom-color: #fff; }
+            .grids .content .editor-grids .editor-area .tabs button.tab:focus {
+              outline: 0; }
+          .grids .content .editor-grids .editor-area .tabs .spacer {
+            width: 100%;
+            height: 100%;
+            background-color: #fefefe;
+            border-bottom: 1px solid #ddd; }
+            .grids .content .editor-grids .editor-area .tabs .spacer.first {
+              border-right: 1px solid #ddd; }
+        .grids .content .editor-grids .editor-area .editors {
+          background-color: #fefefe; }
+          .grids .content .editor-grids .editor-area .editors .editor.hidden {
+            display: none; }
+          .grids .content .editor-grids .editor-area .editors .ace_editor {
+            width: 100%;
+            height: 100%; }
+      .grids .content .editor-grids .detail-area button {
+        height: 28px;
+        padding: 0 8px;
+        font-size: 13px;
+        cursor: pointer;
+        border: 1px solid #cccccc;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        transition: background-color 0.25s, border-color 0.25s; }
+        .grids .content .editor-grids .detail-area button .fas, .grids .content .editor-grids .detail-area button .far {
+          margin-right: 6px;
+          font-size: 13px;
+          color: #555; }
+        .grids .content .editor-grids .detail-area button.is-danger:hover {
+          border-color: #f44336;
+          background: #fde1df; }
+        .grids .content .editor-grids .detail-area button:hover {
+          background: #fafafa; }
+      .grids .content .editor-grids .detail-area .detail-title {
+        height: 52px;
+        display: flex;
+        padding: 0 16px;
+        align-items: center; }
+        .grids .content .editor-grids .detail-area .detail-title h1 {
+          font-size: 16px;
+          line-height: 52px;
+          margin-right: 16px; }
+      .grids .content .editor-grids .detail-area .content {
+        padding: 0px 16px 0px 16px; }
+        .grids .content .editor-grids .detail-area .content h2 {
+          font-size: 12px;
+          line-height: 22px;
+          color: #aaa; }
+        .grids .content .editor-grids .detail-area .content .url {
+          display: grid;
+          grid-template-columns: fit-content(100%) 1fr;
+          font-family: 'Hack', monospace;
+          color: #555; }
+          .grids .content .editor-grids .detail-area .content .url p {
+            display: flex;
+            align-items: center;
+            font-size: 10px; }
+          .grids .content .editor-grids .detail-area .content .url input {
+            width: 100%;
+            font-size: 12px;
+            border: 1px solid #fff;
+            padding: 2px 0;
+            transition: border-color 0.25s; }
+            .grids .content .editor-grids .detail-area .content .url input:hover {
+              border-color: #ccc; }
+      .grids .content .editor-grids .detail-area .output-wrapper {
+        width: 100%;
+        padding: 0 12px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid #ddd; }
+        .grids .content .editor-grids .detail-area .output-wrapper .output {
+          width: 100%;
+          height: 128px;
+          border: 1px solid #ddd;
+          border-bottom: none;
+          padding: 3px;
+          font-size: 12px;
+          overflow-y: scroll; }
+        .grids .content .editor-grids .detail-area .output-wrapper .output-status-wrapper {
+          border: 1px solid #ddd;
+          padding: 3px;
+          height: 26px;
+          display: flex;
+          align-items: center; }
+          .grids .content .editor-grids .detail-area .output-wrapper .output-status-wrapper p {
+            font-size: 12px;
+            color: #aaa; }
+
+/*# sourceMappingURL=style.css.map */

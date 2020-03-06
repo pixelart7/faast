@@ -1,0 +1,38 @@
+doctype html
+html
+  head
+    title
+      if title
+        | #{title} -
+        |
+      | FAAST
+    link(rel='stylesheet', href='/stylesheets/normalize.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/fontawesome/css/fontawesome-all.min.css')
+    link(rel='stylesheet', href='/stylesheets/hack/hack.css')
+  body
+    .grids
+      header 
+        span FAAST
+      .info-bar
+        span Node #{process.version}
+        span#at-ui 
+        span#at-function
+      .sidebar
+        h1 Functions
+        if sidebar !== undefined
+          each func in sidebar
+            a.btn(href="/ui/function/view/" + func.name)
+              i.fas.fa-circle(class=func.online? "is-online" : "")
+              | &nbsp;
+              span= func.name
+        .push
+        a.btn.create(href="/ui/function/new") + Create Function
+        script
+          | window.addEventListener('load', function() {
+          |   var currentHost = window.location.href.split('ui')[0];
+          |   document.getElementById('at-ui').innerHTML = `UI: ${currentHost}ui/ `;
+          |   document.getElementById('at-function').innerHTML = `Function Call: ${currentHost}function/&lt;name&gt;`;
+          | });
+      .content
+        block content

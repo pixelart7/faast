@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  .title
+    h1 Create New Function
+  .sub-content
+    form(action="/ui/function/create", method="post")
+      label Name
+      input(type="text", name="name")
+      span.help-text Function name cannot be changed after created
+      .button-group
+        button.primary(type="submit") Create
